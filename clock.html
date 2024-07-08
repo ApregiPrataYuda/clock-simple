@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Clock</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <h1>Simple Clock</h1>
+                <div class="row">
+                    <div class="col-4">
+                        <div id="hours" class="display-1"></div>
+                        <div class="lead">Hours</div>
+                    </div>
+                    <div class="col-4">
+                        <div id="minutes" class="display-1"></div>
+                        <div class="lead">Minutes</div>
+                    </div>
+                    <div class="col-4">
+                        <div id="seconds" class="display-1"></div>
+                        <div class="lead text-bold">Seconds</div>
+                    </div>
+                </div>
+                <a class="btn btn-sm btn-outline-primary mt-3">IN ABSENSI</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Your custom script -->
+    <script>
+        $(document).ready(function() {
+            function displayTime() {
+                var currentTime = new Date();
+                var hours = currentTime.getHours();
+                var minutes = currentTime.getMinutes();
+                var seconds = currentTime.getSeconds();
+                
+                // Pad minutes and seconds with leading zeros if needed
+                minutes = (minutes < 10 ? "0" : "") + minutes;
+                seconds = (seconds < 10 ? "0" : "") + seconds;
+                
+                // Update the time elements
+                $("#hours").html(hours);
+                $("#minutes").html(minutes);
+                $("#seconds").html(seconds);
+            }
+            
+            // Update the time every second
+            setInterval(displayTime, 1000);
+        });
+    </script>
+</body>
+</html>
